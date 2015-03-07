@@ -24,6 +24,7 @@ gulp.task('serve', ['compass'], function() {
   });
   gulp.watch("app/js/*.js").on('change', reload);
   gulp.watch("app/*.html").on('change', reload);
+  gulp.watch("app/partials/*.html").on('change', reload);
   gulp.watch("./sass/**/*.scss", ['compass']);
 });
 

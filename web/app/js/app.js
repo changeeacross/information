@@ -19,6 +19,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 
 
 myApp.controller('SubmitCtrl', ['$scope','$http','$timeout', function($scope, $http, $timeout){
+  var loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 300, easingIn : mina.easeinout } );
   $scope.back = function() {
     history.back();
   }
@@ -32,6 +33,7 @@ myApp.controller('SubmitCtrl', ['$scope','$http','$timeout', function($scope, $h
         $timeout.cancel(timer);
       }
       timer = $timeout(function() {
+        loader.show();
         $http({
           method: 'GET',
           url: host + '/link?url='+ link
@@ -44,6 +46,7 @@ myApp.controller('SubmitCtrl', ['$scope','$http','$timeout', function($scope, $h
             })
           }, $scope.tags)
           $scope.info = data;
+          loader.hide();
           console.log($scope.tags);
         }).error(function(argument) {
           console.log(argument);
@@ -66,12 +69,14 @@ myApp.controller('SubmitCtrl', ['$scope','$http','$timeout', function($scope, $h
       tagArray.push(tag.text); 
     });
     data.tags = tagArray;
+    loader.show();
     $http({
       method: 'POST',
       url: host + '/info',
       data: data
     }).success(function(data, status, headers, config) {
       console.log(data);
+      loader.hide();
       history.back();
     }).error(function(argument) {
       console.log(argument);
