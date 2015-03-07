@@ -8,7 +8,11 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var link = require('./routes/link');
 
+// app init
 var app = express();
+
+// mongoose setup
+require('./mongooseSetup').setup(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
