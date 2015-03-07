@@ -1,6 +1,6 @@
 # API documentation
 ## How to be authenticated?
-Some APIs can only be used by authenticated users. You can be authenticated by folloing steps:
+Some APIs can only be used by authenticated users. You can be authenticated by following steps:
 
 1. use Token Exchange API below to get our jwt (json web token)
 2. set your token in headers by folloing format:
