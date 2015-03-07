@@ -1,4 +1,7 @@
+var host = "http://localhost"
+
 myApp = angular.module('myApp', ['ui.router']);
+
 
 myApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
@@ -15,8 +18,19 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 });
 
 
-myApp.controller('SubmitCtrl', ['$scope', function($scope){
+myApp.controller('SubmitCtrl', ['$scope','$http', function($scope, $http){
   $scope.back = function() {
     history.back();
+  }
+  $scope.fetchLink = function(link) {
+    console.log(link);
+    $http({
+      method: 'GET',
+      url: host + '/link?url='+ link
+    }).success(function(data, status, headers, config) {
+      console.log(data);
+    }).error(function(argument) {
+      alert(argument);
+    })
   }
 }])
