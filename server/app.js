@@ -5,10 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var link = require('./routes/link');
-
+// app init
 var app = express();
+
+// mongoose setup
+require('./mongooseSetup').setup(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,14 +23,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
 });
 
+// router
+var routes = require('./routes/index');
+var link = require('./routes/link');
+var info = require('./routes/info');
+
 app.use('/', routes);
 app.use('/link', link);
+app.use('/info', info);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
