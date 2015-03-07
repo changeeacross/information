@@ -1,6 +1,28 @@
 <div id="submit-wrapper" ng-click="back()">
-  <form id="submit-form" ng-click="$event.stopPropagation();">
-    <label for="link">網址連結</label>
-    <input type="text" ng-model="link" ng-change="fetchLink(link);">
+  <form id="submit-form" ng-click="$event.stopPropagation();" ng-submit="submitInfo(info, tags)">
+    <ul>
+      <li>
+        <label for="link">網址連結</label>
+        <input type="text" ng-model="link" ng-change="fetchLink(link);">
+      </li>
+      <li>
+        <label ng-show="info.title" for="title">標題</label>
+        <input ng-show="info.title" type="text" name="title" ng-model="info.title">
+      </li>
+      <li>
+        <label ng-show="info.description" for="description">描述</label>
+        <input ng-show="info.description" type="text" name="description" ng-model="info.description">
+      </li>
+      <li>
+        <label for="tag">標籤</label>
+        <tags-input ng-model="tags"></tags-input>
+      </li>
+      <li>
+        <img ng-show="info.image" ng-src="{{info.image}}" alt="image">
+      </li>
+      <li>
+        <input ng-disabled="!info" type="submit" value="送出">
+      </li>
+    </ul>
   </form>
 </div>
