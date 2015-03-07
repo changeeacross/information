@@ -1,4 +1,4 @@
-var host = "http://localhost"
+var host = "";
 
 myApp = angular.module('myApp', ['ui.router','ngTagsInput']);
 
