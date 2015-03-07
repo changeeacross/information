@@ -31,14 +31,13 @@ app.use(function(req, res, next) {
 });
 
 // router
-var routes = require('./routes/index');
 var link = require('./routes/link');
 var info = require('./routes/info');
 var token = require('./routes/token');
 var tag = require('./routes/tag');
 
-app.use('/', routes);
 app.use('/link', link);
+app.use('/info', info);
 app.use('/token', token);
 app.use('/tag', tag);
 
