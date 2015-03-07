@@ -11,7 +11,7 @@ var infoSchema = new mongoose.Schema(
 	, title      : { type: String, required: true }
 	, image      : { type: String, required: true }
 	, description      : { type: String }
-	, tags      : { type: Array, required: true, default: [] }
+	, tags      : { type: Array, required: true, default: [], index: true }
 	, upVote    : { type : Number, required: true, default: 0 }
 	, downVote  : { type : Number, required: true, default: 0 }
 	, createdAt : { type : Date, required: true, default : Date.now }

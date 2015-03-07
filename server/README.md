@@ -70,10 +70,28 @@ Create an new info.
 Search info by tag.
 
 - params
-	- name {String, required} ... name of tag. The name should be completed.
+	- tag {String, required} ... name of tag. The tag should be completed.
 
 - reponse 200 (application/json)
 ```json
+[
+	{
+		"_id": "54fac4cb17d4978d66e7a709",
+		"title": "Carpo 共乘 - 找到您的共乘夥伴",
+		"link": "http://carpo.co",
+		"description": "xxxxxx",
+		"image": "http://d2943dy236fnij.cloudfront.net/square_logo.png",
+		"__v": 0,
+		"createdAt": "2015-03-07T09:28:43.229Z",
+		"downVote": 0,
+		"upVote": 0,
+		"tags": [
+		"共乘",
+		"aa",
+		"ride sharing"
+		]
+	}
+]
 ```
 
 
