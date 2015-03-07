@@ -8,9 +8,9 @@ var mongoose = require('mongoose')
 
 var schema = new Schema(
 	{ createdAt : { type : Date, required: true, default : Date.now }
-	, fbId: { type: String }
-	, email: { type: String }
-	, name: { type: String }
+	, _fromUser : { type: Schema.Types.ObjectId,  ref: 'User', required: true }
+	, _info : { type: Schema.Types.ObjectId,  ref: 'Info', required: true }
+	, type: { type: String, required: true, default: 'up' } // 'up' or 'down'
 });
  
 var Vote = mongoose.model('Vote', schema);

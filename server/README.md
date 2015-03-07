@@ -58,19 +58,19 @@ Create an new info (auth required).
 - response 200 (application/json)
 ```json
 {
-"__v": 0,
-"title": "Carpo 共乘 - 找到您的共乘夥伴",
-"link": "http://carpo.co",
-"description": "xxxxxx",
-"image": "http://d2943dy236fnij.cloudfront.net/square_logo.png",
-"_id": "54fabf78855100d85d7f0f2b",
-"createdAt": "2015-03-07T09:06:00.813Z",
-"downVote": 0,
-"upVote": 0,
-"tags": [
-"共乘",
-"ride sharing"
-]
+	"__v": 0,
+	"title": "Carpo 共乘 - 找到您的共乘夥伴",
+	"link": "http://carpo.co",
+	"description": "xxxxxx",
+	"image": "http://d2943dy236fnij.cloudfront.net/square_logo.png",
+	"_id": "54fabf78855100d85d7f0f2b",
+	"createdAt": "2015-03-07T09:06:00.813Z",
+	"down": 0,
+	"up": 0,
+	"tags": [
+		"共乘",
+		"ride sharing"
+	]
 }
 ```
 
@@ -93,16 +93,26 @@ Search info by tag.
 		"image": "http://d2943dy236fnij.cloudfront.net/square_logo.png",
 		"__v": 0,
 		"createdAt": "2015-03-07T09:28:43.229Z",
-		"downVote": 0,
-		"upVote": 0,
+		"down": 0,
+		"up": 0,
 		"tags": [
-		"共乘",
-		"aa",
-		"ride sharing"
+			"共乘",
+			"aa",
+			"ride sharing"
 		]
 	}
 ]
 ```
+
+### Vote Info
+`GET /info/:_id/vote?type`
+
+Vote an info with _id. (auth needed)
+
+- params
+	- type {String, required} ... should be `up` or `down`, default to `up`.
+
+- reponse 204 (no content)
 
 
 ## Tag
