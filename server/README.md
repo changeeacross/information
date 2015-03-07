@@ -63,3 +63,22 @@ Create an new info.
 ]
 }
 ```
+
+## Token
+### Token Exchange
+` POST /token/exchange`
+
+Exchange Token from other services (ex: fb).
+
+- request (application/json)
+```json
+{
+	"provider": "facebook",
+	"token": "xxxxxx",
+}
+```
+
+- response 200 (text)
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU0ZmI0ZTkzYzJhNGE4MjkyYjBmNGRlNyIsImlhdCI6MTQyNTc1NTc5NSwiZXhwIjoxNDI2MzYwNTk1fQ.HWjzorJaznmsmLL01jXvkDKqPOFz_62TDs95fRarGcM
+```

@@ -22,8 +22,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../web/app')));
-
-
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header("Access-Control-Allow-Origin", "*");
@@ -36,10 +34,11 @@ app.use(function(req, res, next) {
 var routes = require('./routes/index');
 var link = require('./routes/link');
 var info = require('./routes/info');
+var token = require('./routes/token');
 
 app.use('/', routes);
 app.use('/link', link);
-app.use('/info', info);
+app.use('/token', token);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

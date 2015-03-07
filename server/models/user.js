@@ -7,8 +7,9 @@ var mongoose = require('mongoose')
 
 
 var userSchema = new mongoose.Schema(
-	// use _id to be the tag's name
 	{ createdAt : { type : Date, required: true, default : Date.now }
+	, fbId: { type: String }
+	, email: { type: String }
 });
  
 var User = mongoose.model('User', userSchema);
