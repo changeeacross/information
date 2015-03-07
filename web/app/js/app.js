@@ -52,23 +52,27 @@ myApp.controller('SubmitCtrl', ['$scope','$http','$timeout', function($scope, $h
     }
   }
   $scope.submitInfo = function(info, tags) {
-    console.log(info, tags);
+    if ($scope.link.search('http') < 0) {
+      $scope.link = 'http://' + $scope.link;
+    }
     var data = {
       title: info.title,
       description: info.description,
-      image: info.image
+      image: info.image,
+      link: $scope.link
     }
-    var tags = [];
+    var tagArray = [];
     angular.forEach(tags, function(tag) {
-      tags.push(tag.text); 
+      tagArray.push(tag.text); 
     });
-    data.tags = tags;
+    data.tags = tagArray;
     $http({
       method: 'POST',
       url: host + '/info',
       data: data
     }).success(function(data, status, headers, config) {
       console.log(data);
+      history.back();
     }).error(function(argument) {
       console.log(argument);
     })  
