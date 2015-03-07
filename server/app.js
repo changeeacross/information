@@ -36,10 +36,11 @@ app.use(function(req, res, next) {
 var routes = require('./routes/index');
 var link = require('./routes/link');
 var info = require('./routes/info');
+var auth = require('./routes/auth');
 
 app.use('/', routes);
 app.use('/link', link);
-app.use('/info', info);
+app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

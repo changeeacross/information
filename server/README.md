@@ -73,7 +73,7 @@ Exchange Token from other services (ex: fb).
 - request (application/json)
 ```json
 {
-	"service": "facebook",
+	"provider": "facebook",
 	"token": "xxxxxx",
 }
 ```
