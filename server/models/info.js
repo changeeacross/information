@@ -5,7 +5,7 @@ var mongoose = require('mongoose')
 ,	Schema   = mongoose.Schema;
 
 
-var infoSchema = new mongoose.Schema(
+var schema = new Schema(
 
 	{ link      : { type: String, required: true }
 	, title      : { type: String, required: true }
@@ -13,13 +13,13 @@ var infoSchema = new mongoose.Schema(
 	, description      : { type: String }
 	, tags      : { type: Array, required: true, default: [], index: true }
 	, _poster : { type: Schema.Types.ObjectId,  ref: 'User', required: true }
-	, upVote    : { type : Number, required: true, default: 0 }
-	, downVote  : { type : Number, required: true, default: 0 }
+	, up    : { type : Number, required: true, default: 0 }
+	, down  : { type : Number, required: true, default: 0 }
 	, createdAt : { type : Date, required: true, default : Date.now }
 });
 
 // TODO: refactor this to DAO
-infoSchema.post('save', function (info) {
+schema.post('save', function (info) {
 	if (info.tags.length == 0) return;
 	var Tag = mongoose.model('Tag');
 	info.tags.map(function (tag) {
@@ -35,6 +35,6 @@ infoSchema.post('save', function (info) {
 	});
 });
 
-var Info = mongoose.model('Info', infoSchema);
+var Info = mongoose.model('Info', schema);
 
 module.exports = Info;
