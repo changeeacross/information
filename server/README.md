@@ -63,3 +63,24 @@ Create an new info.
 ]
 }
 ```
+
+## Auth
+### Token Exchange
+` POST /auth/token/exchange`
+
+Exchange Token from other services (ex: fb).
+
+- request (application/json)
+```json
+{
+	"service": "facebook",
+	"token": "xxxxxx",
+}
+```
+
+- response 200 (application/json)
+```json
+{
+
+}
+```
