@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 		// console.log(client);
 		var info = {
 			title: client.title,
+			link: url,
 			description: client.description,
 			keywords: client.keywords,
 			image: client.image
