@@ -75,7 +75,15 @@ Search tags containing name.
 
 - response 200 (application/json)
 ```json
-
+[
+{
+	"_id": "54fac4cb39a20451f4d5afc8",
+	"name": "aa",
+	"numOfInfo": 1,
+	"createdAt": "2015-03-07T20:04:19.314Z",
+	"count": 8
+	}
+]
 ````
 
 
