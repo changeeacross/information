@@ -1,0 +1,85 @@
+// This file must be imported before loading html5-boilerplate
+
+// base
+$line-height: 1.4 !default;
+$font-color: #222 !default;
+
+$link-color: #00e !default;
+$link-hover-color: #06e !default;
+$link-visited-color: #551a8b !default;
+
+$selected-font-color: #fff !default;
+$selected-background-color: #ff5e99 !default;
+
+$invalid-background-color: #f0dddd !default;
+
+// 顏色定義
+
+$primary: #e51c23;
+$primary-lighten: #f9bdbb;
+$primary-darken: #d01716;
+$accent: #ffd740;
+$accent-lighten: #ffe57f;
+$accent-darken: #ffc400;
+
+$purple: #9c27b0;
+$deep-purple: #673ab7;
+$blue: #5677fc;
+$green: #259b24;
+$light-green: #8bc34a;
+$lime: #cddc39;
+$header-bg: #fefefe;
+$header-bottom-bg: #bcbcbc;
+
+
+$background: #f2f2f2;
+
+//susy grids
+$total-columns: 12;
+$gutter-width: 1em;
+$container-width: 1280px;
+$grid-padding: 0;
+$container-style: magic;
+$large: 60em 12; 
+$medium: 48em 12 lt-ie9;
+$small: 30em 12;
+
+.jf-loading { /*載入中不顯示*/
+  .xingothic-tc-w4, .wcl-06 {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.jf-active { /*如果處理成功，直接顯示*/
+  .xingothic-tc-w4, .wcl-06 {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.jf-inactive {/*如果處理失敗，直接顯示*/
+  .xingothic-tc-w4, .wcl-06 {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.wcl-06 {
+  font-weight: 700 !important;
+}
+
+.custom-find-car {
+  padding: 30px 0;
+}
+
+.find-car-wrapper {
+  display: block;
+  margin: 0 auto;
+  width: 320px;
+  img {
+    width: 100%;
+  }
+}
