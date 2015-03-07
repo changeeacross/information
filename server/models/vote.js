@@ -1,4 +1,4 @@
-// user.js
+// vote.js
 
 'use strict';
 
@@ -13,6 +13,6 @@ var schema = new Schema(
 	, name: { type: String }
 });
  
-var User = mongoose.model('User', schema);
+var Vote = mongoose.model('Vote', schema);
 
-module.exports = User;
+module.exports = Vote;

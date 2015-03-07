@@ -5,7 +5,7 @@ var mongoose = require('mongoose')
 ,	Schema   = mongoose.Schema;
 
 
-var infoSchema = new mongoose.Schema(
+var schema = new Schema(
 
 	{ link      : { type: String, required: true }
 	, title      : { type: String, required: true }
@@ -19,7 +19,7 @@ var infoSchema = new mongoose.Schema(
 });
 
 // TODO: refactor this to DAO
-infoSchema.post('save', function (info) {
+schema.post('save', function (info) {
 	if (info.tags.length == 0) return;
 	var Tag = mongoose.model('Tag');
 	info.tags.map(function (tag) {
@@ -35,6 +35,6 @@ infoSchema.post('save', function (info) {
 	});
 });
 
-var Info = mongoose.model('Info', infoSchema);
+var Info = mongoose.model('Info', schema);
 
 module.exports = Info;
