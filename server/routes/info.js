@@ -15,7 +15,6 @@ router
 	var info = new Info(_.assign(req.body, {
 		_poster: req.user._id,
 	}));
-	console.log(info)
 	info.save(function (err, info) {
 		if (err) return next(err);
 		res.json(info);
