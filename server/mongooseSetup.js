@@ -17,7 +17,7 @@ exports.setup = function(app) {
 	// mongoose.set('debug', true);
 	
 	var filenames = fs.readdirSync('./models')
-	// console.log(filenames);
+	console.log('y', filenames);
 	filenames.forEach( function (filename) {
 		require('./models/' + filename);
 	});
