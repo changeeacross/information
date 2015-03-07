@@ -4,15 +4,16 @@
 
 'use strict';
 
-var clc = require('cli-color')
-,	fs = require('fs')
-;
+var clc = require('cli-color');
+var fs = require('fs');
+var Promise = require('bluebird');
 
 exports.setup = function(app) {
 	var databaseUrl = 'production' == app.get('env') && !!process.env.DATABASE_URL
 		? process.env.DATABASE_URL
 		: 'mongodb://localhost/information';
-	var mongoose = require('mongoose')
+	var mongoose = require('mongoose');
+	Promise.promisifyAll(mongoose);
 	mongoose.connect(databaseUrl);
 	// mongoose.set('debug', true);
 	

@@ -27,7 +27,7 @@ Fetch the info of the website from the url.
 
 ## Info
 ### Create Info
-` POST /info`
+`POST /info`
 
 Create an new info.
 
@@ -64,9 +64,32 @@ Create an new info.
 }
 ```
 
+## Tag
+### Tag Search
+`GET /tag?name`
+
+Search tags containing name.
+
+- params
+	- name {String, required} ... name of tag.
+
+- response 200 (application/json)
+```json
+[
+{
+	"_id": "54fac4cb39a20451f4d5afc8",
+	"name": "aa",
+	"numOfInfo": 1,
+	"createdAt": "2015-03-07T20:04:19.314Z",
+	"count": 8
+	}
+]
+````
+
+
 ## Token
 ### Token Exchange
-` POST /token/exchange`
+`POST /token/exchange`
 
 Exchange Token from other services (ex: fb).
 
