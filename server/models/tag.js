@@ -7,8 +7,10 @@ var mongoose = require('mongoose')
 
 
 var tagSchema = new mongoose.Schema(
-	// use _id to be the tag's name
-	{ createdAt : { type : Date, required: true, default : Date.now }
+	{ name: { type: String, required: true, index: true, unique: true }
+	, count : { type: Number, required: true, default: 1 }
+	, createdAt : { type : Date, required: true, default: Date.now }
+	
 });
  
 var Tag = mongoose.model('Tag', tagSchema);
