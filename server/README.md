@@ -39,7 +39,7 @@ Fetch the info of the website from the url.
 ### Create Info
 `POST /info`
 
-Create an new info.
+Create an new info (auth required).
 
 - request (application/json)
 ```json

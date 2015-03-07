@@ -13,7 +13,7 @@ module.exports = function (req, res, next) {
 		var parts = req.headers.authorization.split(' ');
 		// check hearder format
 		if (parts.length !== 2 || !/^Bearer$/i.test(parts[0])) {
-			return res.unauthorized({message: 'Header\'s format should be Authorization: Bearer [token]'});
+			return res.status(401).send('Header\'s format should be Authorization: Bearer [token]');
 		}
 		token = parts[1];
 		delete req.headers.authorization;
@@ -26,25 +26,25 @@ module.exports = function (req, res, next) {
 			: null;
 		delete req.query.token;
 	}
-	console.log('token', token);
+
 	if (!!token) {
 		// verify the token
 		TokenService
 		.verifyToken(token)
 		.then(function (result) {
 			return User
-			.findOneById(result.id)
+			.findOneAsync({ _id: result.id })
 		})
 		.then(function (user) {
-			if (!user) return res.send(401, 'Can not find a memeber from the token.');
+			if (!user) return res.status(401).send('Can not find a memeber from the token.');
 			req.user = user;
 			next();
 		})
 		.catch(function (err) {
-			res.send(401, err.message);
+			res.status(401).send(err.message);
 		});
 	} else {
-		res.send(401, 'unauthorized');
+		res.status(401).send('unauthorized');
 	}
 	return;
 };

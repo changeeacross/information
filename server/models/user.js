@@ -10,6 +10,7 @@ var userSchema = new mongoose.Schema(
 	{ createdAt : { type : Date, required: true, default : Date.now }
 	, fbId: { type: String }
 	, email: { type: String }
+	, name: { type: String }
 });
  
 var User = mongoose.model('User', userSchema);

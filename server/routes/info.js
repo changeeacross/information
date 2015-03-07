@@ -2,15 +2,20 @@
 'use strict';
 
 var express = require('express');
+var _ = require('lodash');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Info = mongoose.model('Info');
+var auth = require('./auth');
 
 // TODO: handle duplicate info
 router
-.post('/', function(req, res, next) {
+.post('/', auth, function(req, res, next) {
 	// console.log(req.body);
-	var info = new Info(req.body);
+	var info = new Info(_.assign(req.body, {
+		_poster: req.user._id,
+	}));
+	console.log(info)
 	info.save(function (err, info) {
 		if (err) return next(err);
 		res.json(info);
