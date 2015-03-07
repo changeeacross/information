@@ -3,7 +3,8 @@ var host = "";
 myApp = angular.module('myApp', ['ui.router','ngTagsInput']);
 
 
-myApp.config(function($stateProvider, $urlRouterProvider) {
+myApp.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
+  $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise("/");
 
   $stateProvider

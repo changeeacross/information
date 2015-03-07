@@ -40,6 +40,17 @@ app.use('/', routes);
 app.use('/link', link);
 app.use('/token', token);
 
+app.use("/js", express.static(__dirname + "../web/app/js"));
+app.use("/img", express.static(__dirname + "../web/app/img"));
+app.use("/css", express.static(__dirname + "../web/app/css"));
+app.use("/partials", express.static(__dirname + "../web/app/partials"));
+
+app.use(function(req, res) {
+  // Use res.sendfile, as it streams instead of reading the file into memory.
+  res.sendfile(__dirname + '../web/app/index.html');
+});
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
