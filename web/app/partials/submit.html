@@ -1,0 +1,6 @@
+<div id="submit-wrapper" ng-click="back()">
+  <form id="submit-form" ng-click="$event.stopPropagation();">
+    <label for="link">網址連結</label>
+    <input type="text" ng-model="link" ng-change="fetchLink(link);">
+  </form>
+</div>

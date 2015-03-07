@@ -356,6 +356,44 @@ body, select, input, textarea {
   clear: both;
 }
 
+header .navbar-default {
+  background: #50b599;
+}
+header .navbar-default .navbar-nav > li > a.submit-btn {
+  background: transparent;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  border-color: #fff;
+  border-radius: 50%;
+  margin: 7px;
+  padding: 0;
+  color: #fff;
+  outline: none;
+}
+header .navbar-default .navbar-nav > li > a.submit-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+#submit-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.87);
+}
+
+#submit-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #f1f1f1;
+  border-radius: 5px;
+  height: 400px;
+  margin-top: 10%;
+}
+
 .ir {
   background-color: transparent;
   border: 0;
