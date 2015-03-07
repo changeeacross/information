@@ -64,6 +64,19 @@ Create an new info.
 }
 ```
 
+### Search Info
+`GET /info?tag`
+
+Search info by tag.
+
+- params
+	- name {String, required} ... name of tag. The name should be completed.
+
+- reponse 200 (application/json)
+```json
+```
+
+
 ## Tag
 ### Tag Search
 `GET /tag?name`
@@ -71,7 +84,7 @@ Create an new info.
 Search tags containing name.
 
 - params
-	- name {String, required} ... name of tag.
+	- name {String, required} ... name of tag. Part of name can work.
 
 - response 200 (application/json)
 ```json
