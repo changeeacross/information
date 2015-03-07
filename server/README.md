@@ -47,4 +47,5 @@ Create an new info.
 
 - response 200 (application/json)
 ```json
+
 ```
