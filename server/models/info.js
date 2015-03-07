@@ -12,6 +12,7 @@ var infoSchema = new mongoose.Schema(
 	, image      : { type: String, required: true }
 	, description      : { type: String }
 	, tags      : { type: Array, required: true, default: [], index: true }
+	, _poster : { type: Schema.Types.ObjectId,  ref: 'User', required: true }
 	, upVote    : { type : Number, required: true, default: 0 }
 	, downVote  : { type : Number, required: true, default: 0 }
 	, createdAt : { type : Date, required: true, default : Date.now }

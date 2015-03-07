@@ -1,4 +1,14 @@
 # API documentation
+## How to be authenticated?
+Some APIs can only be used by authenticated users. You can be authenticated by folloing steps:
+
+1. use Token Exchange API below to get our jwt (json web token)
+2. set your token in headers by folloing format:
+```
+	Authorization: Bearer [token]
+```
+where [token] should be replace with your token.
+2. (deprecated) set your token in url by `?token`
 
 ## Link
 `GET /link/?url`
@@ -29,7 +39,7 @@ Fetch the info of the website from the url.
 ### Create Info
 `POST /info`
 
-Create an new info.
+Create an new info (auth required).
 
 - request (application/json)
 ```json
