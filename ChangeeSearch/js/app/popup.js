@@ -47,12 +47,7 @@ myApp.controller("PageController",['$http','$scope','pageInfoService', function 
             $scope.image = data.image;      
             $scope.info.url = data.url;
         })
-        // var data = {
-        //   title: info.title,
-        //   description: info.description,
-        //   image: info.image,
-        //   link: $scope.link
-        // }
+        
         $scope.$apply();
     });
 
@@ -64,16 +59,23 @@ myApp.controller("PageController",['$http','$scope','pageInfoService', function 
         angular.forEach(info.keywords, function(data){
             tagsArray.push(data);
         });
-        $scope.info.tags = tagsArray;
+
+        var data = {
+          title: info.title,
+          description: info.description,
+          image: info.image,
+          link: info.link
+        }
+        data.tags = tagsArray;
 
         $http({
             method: 'POST',
             url: host + '/info?token=' + $scope.serverToken,
-            data: $scope.info
+            data: data
         }).success(function(data, status, headers, config) {
             console.log(data + 'done');
             // loader.hide();
-            history.back();
+            // history.back();
             window.close();
         }).error(function(argument) {
             $scope.message = 'Please try again.'
