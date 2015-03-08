@@ -11,16 +11,30 @@ var Vote = mongoose.model('Vote');
 var auth = require('./auth');
 var config = require('../config');
 
-// TODO: handle duplicate info
 router
 .post('/', auth, function(req, res, next) {
+	// TODO: validate link 
+	if (!req.body.link) return res.status(400).send('missing link');
 	// console.log(req.body);
-	var info = new Info(_.assign(req.body, {
-		_poster: req.user._id,
-	}));
-	info.save(function (err, info) {
-		if (err) return next(err);
-		res.json(info);
+
+	Info
+	.findOneAsync({
+		link: req.body.link
+	})
+	.then(function (info) {
+		console.log('result', info)
+		if (!info) return new Info(_.assign(req.body, {
+			_poster: req.user._id,
+		})).saveAsync();
+		// info is old
+		info.tags = _.union(info.tags, req.body.tags);
+		return info.saveAsync();
+	})
+	.spread(function (updatedInfo) {
+		res.send(updatedInfo);
+	})
+	.catch(function (err) {
+		next(err);
 	});
 })
 .get('/', function(req, res, next) {
