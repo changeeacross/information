@@ -35,11 +35,13 @@ var link = require('./routes/link');
 var info = require('./routes/info');
 var token = require('./routes/token');
 var tag = require('./routes/tag');
+var my = require('./routes/my');
 
 app.use('/link', link);
 app.use('/info', info);
 app.use('/token', token);
 app.use('/tag', tag);
+app.use('/my', my);
 
 app.use("/js", express.static(__dirname + "../web/app/js"));
 app.use("/img", express.static(__dirname + "../web/app/img"));

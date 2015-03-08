@@ -137,6 +137,56 @@ Search tags containing name.
 ]
 ````
 
+# My
+### List My Info
+`GET /my/info`
+
+List infos which are posted by me. (auth required)
+
+- response 200 (application/json)
+```json
+[
+	{
+	"_id": "54fb65151624160352bc3cbf",
+		"title": "Carpo 共乘 - 找到您的共乘夥伴",
+		"link": "http://carpo.co",
+		"description": "xxxxxx",
+		"image": "http://d2943dy236fnij.cloudfront.net/square_logo.png",
+		"_poster": "54fb4e93c2a4a8292b0f4de7",
+		"downVote": 0,
+		"upVote": 0,
+		"__v": 0,
+		"createdAt": "2015-03-07T20:52:37.531Z",
+		"down": 0,
+		"up": 0,
+		"tags": [
+			"共乘",
+			"ride sharing"
+		]
+	}
+]
+```
+
+### List My Vote
+`GET /my/info`
+
+List my votes. (auth required)
+
+- response 200 (application/json)
+```json
+[
+	{
+		"_id": "54fb86c2eacba15f7e1a1f2c",
+		"_fromUser": "54fb4e93c2a4a8292b0f4de7",
+		"_info": "54fb7aef062ebe7969ba03e4",
+		"__v": 0,
+		"type": "down",
+		"createdAt": "2015-03-07T23:16:18.080Z"
+	}
+]
+
+```
+
 
 ## Token
 ### Token Exchange
