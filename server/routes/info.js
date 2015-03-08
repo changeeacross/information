@@ -12,10 +12,20 @@ var auth = require('./auth');
 
 // TODO: handle duplicate info
 router
-.post('/', auth, function(req, res, next) {
+// .post('/', auth, function(req, res, next) {
+// 	// console.log(req.body);
+// 	var info = new Info(_.assign(req.body, {
+// 		_poster: req.user._id,
+// 	}));
+// 	info.save(function (err, info) {
+// 		if (err) return next(err);
+// 		res.json(info);
+// 	});
+// })
+.post('/', function(req, res, next) {
 	// console.log(req.body);
 	var info = new Info(_.assign(req.body, {
-		_poster: req.user._id,
+		_poster: '54fb20706507b11041147071',
 	}));
 	info.save(function (err, info) {
 		if (err) return next(err);
@@ -80,6 +90,17 @@ router
 	});
 })
 ;
+
+router.get('/read', function(req, res){
+	return Info.find(function(err, data){
+		if (!err)
+			return res.send(data);
+		else
+			return res.send(err);
+	}) 
+})
+
+
 
 
 module.exports = router;

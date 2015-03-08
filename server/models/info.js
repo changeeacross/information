@@ -35,6 +35,7 @@ schema.post('save', function (info) {
 	});
 });
 
+
 var Info = mongoose.model('Info', schema);
 
 module.exports = Info;
