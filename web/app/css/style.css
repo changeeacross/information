@@ -340,8 +340,9 @@ body, select, input, textarea {
   color: #222;
 }
 
-body {
+html, body {
   background: #e9dfd4;
+  min-height: 100%;
 }
 
 .main-container {
