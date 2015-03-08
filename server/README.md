@@ -137,6 +137,27 @@ Search tags containing name.
 ]
 ````
 
+# My
+### List My Info
+`GET /my/info`
+
+List infos which are posted by me. (auth required)
+
+- response 200 (application/json)
+```json
+
+```
+
+### List My Vote
+`GET /my/info`
+
+List my votes. (auth required)
+
+- response 200 (application/json)
+```json
+
+```
+
 
 ## Token
 ### Token Exchange
