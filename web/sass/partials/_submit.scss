@@ -15,6 +15,8 @@
     position: relative;
     overflow: hidden;
     background: #ccc;
+    border-radius: 10px;
+    border: 1px solid #389b74;
     .img {
       position: absolute;
       top: 0;
@@ -48,7 +50,8 @@
   background: #e9dfd4;
   label {
     display: block;
-    font-size: 20px;
+    font-size: 16px;
+    color: #389b74;
   }
   .submit-input {
     width: 100%;
@@ -60,9 +63,20 @@
     @include box-shadow(1px 1px 1px 0 lightgray inset);
     height: 34px;
     border: 1px solid #cccccc;
-    border-radius: 4px;
+    border-radius: 10px;
     outline: none;
     padding-left: 6px;
+  }
+}
+
+#submit-form {
+  input[type="submit"] {
+    margin-top: 10px;
+    background: #50b599;
+    color: #fff;
+    padding: 18px;
+    border-radius: 10px;
+    border: 0;
   }
 }
 
@@ -87,6 +101,15 @@
     }
   }
 }
+
+tags-input .tags .tag-item {
+  background: #50b599;
+  border-color: #50b599;
+}
+tags-input .tags .tag-item .remove-button {
+  color: #fff;
+}
+
 
 .pageload-overlay {
   position: fixed;

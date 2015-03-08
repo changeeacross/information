@@ -478,6 +478,8 @@ header .navbar-nav > li > a.user-profile .avatar {
   position: relative;
   overflow: hidden;
   background: #ccc;
+  border-radius: 10px;
+  border: 1px solid #389b74;
 }
 #submit-form .img-wrapper .img, #get-link .img-wrapper .img {
   position: absolute;
@@ -503,7 +505,8 @@ header .navbar-nav > li > a.user-profile .avatar {
 }
 #submit-form label, #get-link label {
   display: block;
-  font-size: 20px;
+  font-size: 16px;
+  color: #389b74;
 }
 #submit-form .submit-input, #get-link .submit-input {
   width: 100%;
@@ -517,9 +520,18 @@ header .navbar-nav > li > a.user-profile .avatar {
   box-shadow: 1px 1px 1px 0 lightgray inset;
   height: 34px;
   border: 1px solid #cccccc;
-  border-radius: 4px;
+  border-radius: 10px;
   outline: none;
   padding-left: 6px;
+}
+
+#submit-form input[type="submit"] {
+  margin-top: 10px;
+  background: #50b599;
+  color: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  border: 0;
 }
 
 #get-link {
@@ -544,6 +556,15 @@ header .navbar-nav > li > a.user-profile .avatar {
   height: 34px;
   border-radius: 0 10px 10px 0;
   border: 0;
+}
+
+tags-input .tags .tag-item {
+  background: #50b599;
+  border-color: #50b599;
+}
+
+tags-input .tags .tag-item .remove-button {
+  color: #fff;
 }
 
 .pageload-overlay {

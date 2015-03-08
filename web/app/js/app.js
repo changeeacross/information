@@ -1,6 +1,6 @@
 var host = "";
 
-myApp = angular.module('myApp', ['ui.router','ngTagsInput','ngStorage']);
+myApp = angular.module('myApp', ['ui.router','ngTagsInput']);
 
 
 myApp.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
@@ -22,9 +22,9 @@ var ref = new Firebase("https://changeesearch.firebaseio.com");
 
 
 myApp.controller('AuthCtrl', ['$scope','$rootScope','$http','$timeout', function($scope, $rootScope, $http, $timeout){
-  console.log('auth...');
+  // console.log('auth...');
   $scope.logout = function() {
-    console.log('unauth');
+    // console.log('unauth');
     localStorage.setItem('expire', "");
     localStorage.setItem('accessToken', "");
     localStorage.setItem('uid', "");
