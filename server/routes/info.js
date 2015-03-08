@@ -9,23 +9,14 @@ var mongoose = require('mongoose');
 var Info = mongoose.model('Info');
 var Vote = mongoose.model('Vote');
 var auth = require('./auth');
+var config = require('../config');
 
 // TODO: handle duplicate info
 router
-// .post('/', auth, function(req, res, next) {
-// 	// console.log(req.body);
-// 	var info = new Info(_.assign(req.body, {
-// 		_poster: req.user._id,
-// 	}));
-// 	info.save(function (err, info) {
-// 		if (err) return next(err);
-// 		res.json(info);
-// 	});
-// })
-.post('/', function(req, res, next) {
+.post('/', auth, function(req, res, next) {
 	// console.log(req.body);
 	var info = new Info(_.assign(req.body, {
-		_poster: '54fb20706507b11041147071',
+		_poster: req.user._id,
 	}));
 	info.save(function (err, info) {
 		if (err) return next(err);
@@ -87,6 +78,15 @@ router
 	.catch(function (err) {
 		if (res.status == 400) return res.send(err.message);
 		next(err);
+	});
+})
+.delete('/:_id/', auth, function(req, res, next) {
+	if ( config.MASTER_FB_IDS.indexOf(req.user.fbId) < 0 ) return res.sendStatus(401);
+	Info
+	.remove(req.params._id)
+	.exec(function (err) {
+		if (err) return next(err);
+		res.sendStatus(204);
 	});
 })
 ;
