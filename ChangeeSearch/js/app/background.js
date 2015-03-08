@@ -10,6 +10,9 @@ function onFacebookLogin() {
                     console.log(access);
                     localStorage.accessToken = access;
                     chrome.tabs.onUpdated.removeListener(onFacebookLogin);
+                    chrome.tabs.remove(tabs[i].id, function (){
+                        console.log(good);
+                    });
                     return;
                 }
             }
@@ -17,4 +20,6 @@ function onFacebookLogin() {
     }
 }
 chrome.tabs.onUpdated.addListener(onFacebookLogin);
+
+
 
