@@ -21,7 +21,7 @@ myApp.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
 
 var ref = new Firebase("https://changeesearch.firebaseio.com");
 
-myApp.controller('InfoCtrl', ['$scope','$http', function($scope, $http){
+myApp.controller('InfoCtrl', ['$scope','$rootScope','$http', function($scope, $rootScope, $http){
   $http({
     method: 'GET',
     url: host + '/info/read'
@@ -31,6 +31,23 @@ myApp.controller('InfoCtrl', ['$scope','$http', function($scope, $http){
   }).error(function(argument) {
     console.log(argument);
   })
+
+  $scope.voteInfo = function(info, type) {
+    console.log(info._id);
+    console.log(type);
+    $http({
+      method: 'GET',
+      url: host + '/info/'+ info._id +'/vote?type='+ type + '&token=' + $rootScope.session
+    }).success(function(data, status, headers, config) {
+      if(type == 'up') {
+        info.up = info.up + 1;
+      } else if(type == 'down' ) {
+        info.down = info.down + 1; 
+      }
+    }).error(function(argument) {
+      console.log(argument);
+    })
+  }
 }])
 
 myApp.controller('AuthCtrl', ['$scope','$rootScope','$http','$timeout', function($scope, $rootScope, $http, $timeout){

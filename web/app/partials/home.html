@@ -3,13 +3,13 @@
     <div class="info-vote">
       <ul>
         <li>
-          <a  class="btn btn-default btn-vote up">
+          <a ng-click="voteInfo(info, 'up')" class="btn btn-default btn-vote up">
             <i class="fa fa-chevron-up"></i>
             <span class="up-vote-count vote-count">{{info.up}}</span>  
           </a>
         </li>
         <li>
-          <a  class="btn btn-default btn-vote down">
+          <a ng-click="voteInfo(info, 'down')" class="btn btn-default btn-vote down">
             <span class="down-vote-count vote-count">{{info.down}}</span>
             <i class="fa fa-chevron-down"></i>
           </a>
