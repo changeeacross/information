@@ -26,15 +26,15 @@ myApp.controller('InfoCtrl', ['$scope','$rootScope','$http', function($scope, $r
     method: 'GET',
     url: host + '/info/read'
   }).success(function(data, status, headers, config) {
-    console.log(data);
+    // console.log(data);
     $scope.infos = data;
   }).error(function(argument) {
     console.log(argument);
   })
 
   $scope.voteInfo = function(info, type) {
-    console.log(info._id);
-    console.log(type);
+    // console.log(info._id);
+    // console.log(type);
     $http({
       method: 'GET',
       url: host + '/info/'+ info._id +'/vote?type='+ type + '&token=' + $rootScope.session
@@ -103,7 +103,7 @@ myApp.controller('AuthCtrl', ['$scope','$rootScope','$http','$timeout', function
           "token": $rootScope.accessToken,
         }
       }).success(function(data, status, headers, config) {
-        console.log(data);
+        // console.log(data);
         localStorage.setItem('session', data);
         $rootScope.session = data;
       }).error(function(argument) {

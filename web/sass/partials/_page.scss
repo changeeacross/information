@@ -26,6 +26,10 @@ body {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   .navbar-default {
     background: #50b599;
     .navbar-nav {
@@ -40,6 +44,10 @@ header {
         color: rgba(#fff, 0.87);
       }
     }
+  }
+
+  .nav>li>a {
+    padding: 0;
   }
 
   .navbar-form {

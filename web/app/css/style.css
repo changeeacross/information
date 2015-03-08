@@ -360,6 +360,12 @@ body {
   clear: both;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 header .navbar-default {
   background: #50b599;
 }
@@ -374,6 +380,9 @@ header .navbar-default .navbar-brand {
 }
 header .navbar-default .navbar-brand:hover {
   color: rgba(255, 255, 255, 0.87);
+}
+header .nav > li > a {
+  padding: 0;
 }
 header .navbar-form {
   margin-top: 18px;
@@ -665,7 +674,7 @@ tags-input .tags .tag-item .remove-button {
 }
 
 .info-list-wrapper {
-  padding: 30px;
+  padding: 120px 30px 30px 30px;
 }
 
 .info-list {
