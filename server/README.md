@@ -174,6 +174,16 @@ List my votes. (auth required)
 
 - response 200 (application/json)
 ```json
+[
+	{
+		"_id": "54fb86c2eacba15f7e1a1f2c",
+		"_fromUser": "54fb4e93c2a4a8292b0f4de7",
+		"_info": "54fb7aef062ebe7969ba03e4",
+		"__v": 0,
+		"type": "down",
+		"createdAt": "2015-03-07T23:16:18.080Z"
+	}
+]
 
 ```
 
