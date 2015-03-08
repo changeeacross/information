@@ -86,7 +86,7 @@ myApp.controller('AuthCtrl', ['$scope','$rootScope','$http','$timeout', function
           "token": $rootScope.accessToken,
         }
       }).success(function(data, status, headers, config) {
-        // console.log(data);
+        console.log(data);
         localStorage.setItem('session', data);
         $rootScope.session = data;
       }).error(function(argument) {

@@ -426,6 +426,18 @@ header .navbar-default .navbar-nav > li > a.btn-login:hover {
   color: #fff;
   background: rgba(255, 255, 255, 0.3);
 }
+header .navbar-default .navbar-nav > li > a.github {
+  color: #fff;
+  background-color: #000;
+  height: 38px;
+  border-radius: 8px;
+  line-height: 38px;
+  padding: 0 10px;
+  margin-right: 16px;
+}
+header .navbar-default .navbar-nav > li > a.github i {
+  margin-right: 5px;
+}
 header .navbar-nav > li > a.user-profile {
   padding: 0;
   padding-left: 45px;
