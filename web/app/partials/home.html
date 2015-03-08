@@ -1,2 +1,28 @@
-<div>HOME</div>
+<div class="info-list-wrapper">
+  <div class="info-list" ng-repeat="info in infos track by $index">
+    <div class="info-vote">
+      <ul>
+        <li>
+          <a  class="btn btn-default btn-vote up">
+            <i class="fa fa-chevron-up"></i>
+            <span class="up-vote-count vote-count">{{info.up}}</span>  
+          </a>
+        </li>
+        <li>
+          <a  class="btn btn-default btn-vote down">
+            <span class="down-vote-count vote-count">{{info.down}}</span>
+            <i class="fa fa-chevron-down"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="info-img">
+      <div class="inner-info-img" style="background-image: url({{info.image}}); background-size: cover"></div>
+    </div>
+    <div class="info-content">
+      <h2 class="info-title"><a target="_blank" ng-href="{{info.link}}">{{info.title}}</a></h2>
+      <p>{{info.description}}</p>
+    </div>
+  </div>
+</div>
 <div ui-view></div>
