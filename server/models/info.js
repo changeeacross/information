@@ -8,8 +8,8 @@ var mongoose = require('mongoose')
 var schema = new Schema(
 
 	{ link      : { type: String, required: true }
-	, title      : { type: String, required: true }
-	, image      : { type: String, required: true }
+	, title      : { type: String, /* required: true */}
+	, image      : { type: String, /* required: true */}
 	, description      : { type: String }
 	, tags      : { type: Array, required: true, default: [], index: true }
 	, _poster : { type: Schema.Types.ObjectId,  ref: 'User', required: true }
