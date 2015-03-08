@@ -63,6 +63,9 @@ header {
       }
     }
   }
+  .custom-nav {
+    padding: 18px;
+  }
   .navbar-default .navbar-nav > li > a.submit-btn {
     background: transparent;
     width: 38px;
@@ -70,13 +73,49 @@ header {
     line-height: 38px;
     border-color: #fff;
     border-radius: 50%;
-    margin: 18px;
     padding: 0;
+    margin-right: 18px;
     color: #fff;
     outline: none;
     &:hover {
       background: rgba(#fff, 0.3);
       color: #fff;
+    }
+  }
+  .navbar-default .navbar-nav > li > a.btn-login {
+    height: 38px;
+    padding: 0 18px;
+    line-height: 38px;
+    border: 1px solid #fff;
+    color: #fff;
+    &:hover {
+      color: #fff;
+      background: rgba(#fff,0.3);
+    }
+  }
+  .navbar-nav>li>a.user-profile {
+    padding: 0;
+    padding-left: 45px;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    line-height: 38px;
+    text-align: right;
+    color: #fff;
+    padding-right: 8px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      background: rgba(#fff, 0.3);
+      color: #fff;
+    }
+    .avatar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
     }
   }
 }
