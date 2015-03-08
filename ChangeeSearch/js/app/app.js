@@ -1,1 +1,1 @@
-﻿var myApp = angular.module('myApp', ['ngTagsInput']);
+﻿var myApp = angular.module('myApp', []);
