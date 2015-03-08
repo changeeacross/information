@@ -13,9 +13,7 @@ var Vote = mongoose.model('Vote');
 var auth = require('./auth');
 
 router
-.get('/info', /* auth, */ function (req, res, next) {
-	// test
-	req.user = {_id: '54fb4e93c2a4a8292b0f4de7'}
+.get('/info', auth, function (req, res, next) {
 	Info
 	.find({ _poster: req.user._id })
 	.exec(function (err, infos) {
@@ -23,9 +21,7 @@ router
 		res.send(infos);
 	});
 })
-.get('/vote', /* auth, */ function (req, res, next) {
-	// test
-	req.user = {_id: '54fb4e93c2a4a8292b0f4de7'}
+.get('/vote', auth, function (req, res, next) {
 	Vote
 	.find({ _fromUser: req.user._id })
 	.exec(function (err, votes) {
