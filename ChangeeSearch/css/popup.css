@@ -21,6 +21,9 @@ header {
   
 }
 
+a {
+  color: white;
+}
 
 form {
   line-height: 2;

@@ -1,4 +1,5 @@
-﻿var host = 'http://localhost';
+﻿var host = 'http://changeesearch.com';
+// var host = 'http://localhost';
 
 myApp.service('pageInfoService', function($rootScope) {
     this.getInfo = function(callback) {
@@ -19,13 +20,14 @@ myApp.service('pageInfoService', function($rootScope) {
         // chrome.bookmarks.getTree(function (tree){
         //     console.log(tree);
         // })
+
     };
 });
 
 myApp.controller("PageController",['$http','$scope','pageInfoService', function ($http, $scope, pageInfoService) {
 
     console.log('hello')
-    $scope.message = "Hello from AngularJS";
+    // $scope.message = "Hello from AngularJS";
     
 
     pageInfoService.getInfo(function (info) {
@@ -66,18 +68,24 @@ myApp.controller("PageController",['$http','$scope','pageInfoService', function 
 
         $http({
             method: 'POST',
-            url: host + '/info',
+            url: host + '/info?token=' + $scope.serverToken,
             data: $scope.info
         }).success(function(data, status, headers, config) {
             console.log(data + 'done');
             // loader.hide();
             history.back();
+            window.close();
         }).error(function(argument) {
+            $scope.message = 'Please try again.'
             console.log(argument);
         })  
     }
 
-
+    $scope.myPocket = function(){
+        $http.get(host + '/my/info?=' + $scope.serverToken).success(function(data){
+            $scope.pocket = data ;
+        }).error(console.log)
+    }
     // Check Facebook Token //
     console.log(localStorage.accessToken)
     if (localStorage.accessToken) {
@@ -96,7 +104,7 @@ myApp.controller("PageController",['$http','$scope','pageInfoService', function 
 
         $http({
             method : 'POST',
-            url : 'http://localhost/token/exchange',
+            url : host + '/token/exchange',
             data : loginData
         }).success(function(data){
             $scope.serverToken = data;
