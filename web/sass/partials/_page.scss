@@ -1,0 +1,82 @@
+//-----------------------------------------------
+// The following html5-boilerplate styles should
+// probably be customized for each site
+//-----------------------------------------------
+body, select, input, textarea {
+  color: $font-color;
+  // Set your base font here, to apply evenly
+  // font-family: Georgia, serif;
+}
+
+//-----------------------------------
+// Add your own custom styles below
+//-----------------------------------
+
+body {
+  // background: $background;
+  // font-family: \5FAE\8EDF\6B63\9ED1\9AD4, \65B0\7D30\660E\9AD4, "Times New Roman", Georgia, Serif, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  background: #e9dfd4;
+}
+
+#container {}
+
+.main-container {
+  @include container;
+  // @include susy-grid-background;
+}
+
+header {
+  .navbar-default {
+    background: #50b599;
+    .navbar-nav {
+      height: 70px;
+    }
+    .navbar-brand {
+      font-size: 24px;
+      line-height: 40px;
+      height: 70px;
+      color: #fff;
+      &:hover {
+        color: rgba(#fff, 0.87);
+      }
+    }
+  }
+
+  .navbar-form {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    .form-group {
+      border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      padding-right: 34px;
+      input {
+        border-radius: 0;
+        width: 100%;
+      }
+      position: relative;
+      .btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-left: 0;
+      }
+    }
+  }
+  .navbar-default .navbar-nav > li > a.submit-btn {
+    background: transparent;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    border-color: #fff;
+    border-radius: 50%;
+    margin: 18px;
+    padding: 0;
+    color: #fff;
+    outline: none;
+    &:hover {
+      background: rgba(#fff, 0.3);
+      color: #fff;
+    }
+  }
+}
