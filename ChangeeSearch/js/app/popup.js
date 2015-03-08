@@ -15,13 +15,15 @@ myApp.service('pageInfoService', function($rootScope) {
                     model.pageInfos = response;
                     callback(model);
                 });
-                console.log( model);
-
             }
 
         });
-
-        // chrome.bookmarks.get()
+        chrome.bookmarks.getTree(function (tree){
+            console.log(tree);
+        })
+        chrome.cookies.getAll({domain : 'localhost'}, function (callback){
+            console.log(callback);
+        })
     };
 });
 
@@ -49,7 +51,6 @@ myApp.controller("PageController",['$http','$scope','pageInfoService', function 
             }, $scope.tags) 
             $scope.image = data.image;      
             $scope.info.url = data.url;
-            console.log($scope.tags);
         })
         // var data = {
         //   title: info.title,
@@ -57,8 +58,7 @@ myApp.controller("PageController",['$http','$scope','pageInfoService', function 
         //   image: info.image,
         //   link: $scope.link
         // }
-        console.log(info);
-        $scope.$apply();
+        // $scope.$apply();
     });
 
     $scope.submitInfo = function(info,tags){
@@ -69,21 +69,47 @@ myApp.controller("PageController",['$http','$scope','pageInfoService', function 
             tagsArray.push(data);
         });
         $scope.info.tags = tagsArray;
-        console.log($scope.info);
 
         $http({
             method: 'POST',
             url: host + '/info',
             data: $scope.info
         }).success(function(data, status, headers, config) {
-            console.log(data);
-            loader.hide();
+            console.log(data + 'done');
+            // loader.hide();
             history.back();
         }).error(function(argument) {
             console.log(argument);
         })  
     }
+
+    if (localStorage.accessToken) {
+        var graphUrl = "https://graph.facebook.com/me?" + localStorage.accessToken + "&callback=displayUser";
+        console.log(graphUrl);
+
+        var script = document.createElement("script");
+        script.src = graphUrl;
+        document.body.appendChild(script);
+        alert(script)  
+        function displayUser(user) {
+            console.log(user);
+        }
+    }
+
+
+    // var ref = new Firebase("https://changeesearch.firebaseio.com");
+
+    // $scope.fbLogin = function(){
+    //     ref.authWithOAuthPopup("facebook", function(error, authData) {
+    //       if (error) {
+    //         console.log("Login Failed!", error);
+    //       } else {
+    //         console.log(authData);
+    //       }
+    //     });
+    // }
 }]);
+
 
 
 

@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html ng-app="AngularChromeEx" ng-csp>
+<html ng-app="myApp" ng-csp>
     <head>
         <link rel="stylesheet" href="css/popup.css">
         <link rel="stylesheet" href="js/ng-tags-input/ng-tags-input.css">
-    <link rel="stylesheet" href="js/ng-tags-input/ng-tags-input.bootstrap.css">
-    </head>
-    <body id="popup">
-        <header>
-            <h1>Changee Search</h1>
-        </header>
+        <link rel="stylesheet" href="js/ng-tags-input/ng-tags-input.bootstrap.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-        <div ng-controller="PageController">
-            <form id="submit-form" ng-click="$event.stopPropagation();" ng-submit="submitInfo(info, tags)">
+
+    </head>
+    <body id="popup" ng-controller="PageController" ng-init="form=false; bookmark=false; fb=false;">
+        <header>
+            <h1>Changee Search
+            <span class="icon-group">
+              <i class="fa fa-bookmark fa-lg" ng-click="bookmark = !bookmark; form = false"></i>
+              <i class="fa fa-heart fa-lg" ng-click="form = !form; bookmark = false"></i>
+              <i class="fa fa-facebook fa-lg" ng-click="fb=!fb; form=false; bookmark=false"></i>
+            </span>
+            </h1>
+        </header>
+        <div ng-show="bookmark">
+            <button class="btn-bookmark">匯入您的書籤</button>
+        </div>
+        <div ng-show="form">
+            <form id="submit-form" ng-click="$event.stopPropagation();" ng-submit="submitInfo(info, tags)" >
                 <div class="img-wrapper" style="background: url({{image}});background-size: cover;">
                   <div class="img" ng-hide="image">
                     <i class="fa fa-image fa-5x"></i>
@@ -40,15 +51,18 @@
                   </li>
                 </ul>
               </form>
-            
         </div>
-
-        <script src="js/lib/jquery-1.8.2.min.js"></script>
-        <script src="js/lib/angular.min.js"></script>
-
-        <script src="js/ng-tags-input/ng-tags-input.js"></script>
+        <div ng-show="fb">
+           <h1>Facebook Connect For Chrome Extension</h1>
+            <p><a target="_blank" href="https://www.facebook.com/dialog/oauth?client_id=421496681325151&response_type=token&scope=email&redirect_uri=http://www.facebook.com/connect/login_success.html">Facebook Connect</a></p>
+        </div>
         
-        <script src="js/app/app.js"></script>
-        <script src="js/app/popup.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="js/lib/angular.min.js"></script>
+        <script type="text/javascript" src="js/ng-tags-input/ng-tags-input.js"></script>
+        
+        <script type="text/javascript" src="js/app/app.js"></script>
+        <script type="text/javascript" src="js/app/background.js"></script>
+        <script type="text/javascript" src="js/app/popup.js"></script>
     </body>
 </html>

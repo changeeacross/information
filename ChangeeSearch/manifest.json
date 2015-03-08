@@ -13,11 +13,13 @@
 		"default_title": "Changee Search - Change the way you search"
 	},
 	"content_scripts": [ {
-	"js": [ "js/lib/jquery-1.8.2.min.js", "js/app/content.js"],
+
+	"js": [ "js/lib/jquery-1.8.2.min.js", "js/app/content.js" ],
+	"script-src" : [ "js/firebase.js" , "https://changeesearch.firebaseio.com/*"],
 	"matches": [ "*://*/*" ],
 	"run_at": "document_start"
 	} ],
 	"minimum_chrome_version": "18",
-	"permissions": [ "http://*/*", "https://*/*", "https://ajax.googleapis.com/", "unlimitedStorage", "contextMenus", "cookies", "tabs", "notifications" ]
+	"permissions": [ "http://*/*", "https://*/*", "http://*.facebook.com/*" ,"https://changeesearch.firebaseio.com/.","http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", "https://cdn.firebase.com/js/client/2.2.1/firebase.js" ,"https://ajax.googleapis.com/", "unlimitedStorage","bookmarks", "contextMenus", "cookies", "tabs", "notifications" ]
 
 }

@@ -1,20 +1,55 @@
 body {
   width : 400px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   margin-top: 10px;
+  text-align: center;
   background-color: #50b599;
   /*color : white;*/
   overflow: auto;
+  scrollbar-face-color: ThreeDFace;
+  scrollbar-shadow-color: ThreeDDarkShadow;
+  scrollbar-highlight-color: ThreeDHighlight;
+  scrollbar-3dlight-color: ThreeDLightShadow;
+  scrollbar-darkshadow-color: ThreeDDarkShadow;
+  scrollbar-track-color: Scrollbar;
+  scrollbar-arrow-color: ButtonText;
 }
 
 header {
   margin-left : 10px;
   color: white;
+  
 }
+
 
 form {
   line-height: 2;
 }
+
+.icon-group {
+  margin-left: 10px;
+  vertical-align: center;
+}
+
+/*i {
+  color : #E87A90;
+}
+i:hover{
+  color: #F596AA;
+}*/
+
+.btn-bookmark {
+  max-width: 30px;
+  margin: 0 auto;
+  background: #f1f1f1;
+  border-radius: 5px;
+  min-height: 30px;
+  margin-top: 10%;
+  box-sizing: border-box;
+  padding: 40px 20px;
+  background: #e9dfd4;
+}
+
 #submit-wrapper {
   position: fixed;
   top: 0;
