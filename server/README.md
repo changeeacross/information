@@ -107,12 +107,24 @@ Search info by tag.
 ### Vote Info
 `GET /info/:_id/vote?type`
 
-Vote an info with _id. (auth needed)
+Vote an info with _id. (auth required)
 
 - params
 	- type {String, required} ... should be `up` or `down`, default to `up`.
+	- _id {ObjectId, required} ... info _id.
 
 - reponse 204 (no content)
+
+### Delete Info
+`DELETE /info/:_id/
+
+Delete an info with _id. (auth required)
+
+- params
+	- _id {ObjectId, required} ... info _id.
+
+- reponse 204 (no content)
+
 
 
 ## Tag
