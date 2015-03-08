@@ -1,16 +1,19 @@
 <div id="submit-wrapper" ng-click="back()">
-
-  <form id="submit-form" ng-click="$event.stopPropagation();" ng-submit="submitInfo(info, tags)">
-    <div class="img-wrapper" style="background: url({{info.image}});background-size: cover;">
+  <form id="get-link" ng-hide="info" ng-submit="fetchLink(link);" ng-click="$event.stopPropagation();" >
+    <ul class="ul-list">
+      <li class="list">
+        <input class="submit-input" type="text" ng-model="link">
+        <button type="submit"><i class="fa fa-arrow-right"></i></button>
+      </li>
+    </ul>
+  </form>
+  <form ng-show="info" id="submit-form" ng-click="$event.stopPropagation();" ng-submit="submitInfo(info, tags)">
+    <div ng-show="info.image" class="img-wrapper" style="background: url({{info.image}});background-size: cover;">
       <div class="img" ng-hide="info.image">
         <i class="fa fa-image fa-5x"></i>
       </div>
     </div>
     <ul class="ul-list">
-      <li class="list">
-        <label for="link">網址連結</label>
-        <input class="submit-input" type="text" ng-model="link" ng-change="fetchLink(link);">
-      </li>
       <li class="list">
         <label ng-show="info.title" for="title">標題</label>
         <input class="submit-input" ng-show="info.title" type="text" name="title" ng-model="info.title">
@@ -19,11 +22,11 @@
         <label ng-show="info.description" for="description">描述</label>
         <input class="submit-input" ng-show="info.description" type="text" name="description" ng-model="info.description">
       </li>
-      <li class="list" ng-show="tags">
+      <li class="list" ng-show="tags || tags.length==0">
         <label for="tag">標籤</label>
         <tags-input ng-model="tags" min-length="2"></tags-input>
       </li>
-      <li class="list">
+      <li class="list" ng-show="info">
         <input ng-disabled="!info" type="submit" value="送出">
       </li>
     </ul>
