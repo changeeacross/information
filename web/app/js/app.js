@@ -10,7 +10,8 @@ myApp.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: "/",
-      templateUrl: "partials/home.html"
+      templateUrl: "partials/home.html",
+      controller: "InfoCtrl"
     }).state('home.submit', {
       url: "submit",
       templateUrl: "partials/submit.html",
@@ -20,6 +21,17 @@ myApp.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
 
 var ref = new Firebase("https://changeesearch.firebaseio.com");
 
+myApp.controller('InfoCtrl', ['$scope','$http', function($scope, $http){
+  $http({
+    method: 'GET',
+    url: host + '/info/read'
+  }).success(function(data, status, headers, config) {
+    console.log(data);
+    $scope.infos = data;
+  }).error(function(argument) {
+    console.log(argument);
+  })
+}])
 
 myApp.controller('AuthCtrl', ['$scope','$rootScope','$http','$timeout', function($scope, $rootScope, $http, $timeout){
   // console.log('auth...');

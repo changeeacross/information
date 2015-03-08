@@ -8,7 +8,8 @@ Some APIs can only be used by authenticated users. You can be authenticated by f
 	Authorization: Bearer [token]
 ```
 where [token] should be replace with your token.
-2. (deprecated) set your token in url by `?token`
+
+(deprecated) set your token in url by `?token`
 
 ## Link
 `GET /link/?url`
