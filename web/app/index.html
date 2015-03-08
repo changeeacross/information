@@ -32,7 +32,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
   <header>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" ng-controller="AuthCtrl">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -47,9 +47,15 @@
           </div>
           
         </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#/submit" class="btn submit-btn"><i class="fa fa-plus"></i></a></li>
-          <li></li>
+        <ul class="nav navbar-nav navbar-right custom-nav">
+          <li ng-show="loginStatus"><a href="/submit" class="btn submit-btn"><i class="fa fa-plus"></i></a></li>
+          <li><a ng-click="loginWithFB();" ng-hide="loginStatus" ng-cloak class="btn btn-login">登入</a></li>
+          <li>
+            <a ng-click="logout();" ng-show="loginStatus" ng-cloak class="user-profile">
+              {{displayName}}
+              <img class="avatar" ng-src="http://graph.facebook.com/{{fbId}}/picture" alt="{{fbId}}">
+            </a>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>  
@@ -60,9 +66,11 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-cookies.min.js"></script>
     <script src="js/vendor/angular-ui-router.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
     <script src="js/ng-tags-input/ng-tags-input.js"></script>
     <script src="js/vendor/classie.js"></script>
     <script src="js/vendor/snap.svg-min.js"></script>
@@ -78,5 +86,23 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '421496681325151',
+          xfbml      : true,
+          version    : 'v2.1'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/zh_TW/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
   </body>
 </html>

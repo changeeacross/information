@@ -50,7 +50,8 @@ app.use("/partials", express.static(__dirname + "../web/app/partials"));
 
 app.use(function(req, res) {
   // Use res.sendfile, as it streams instead of reading the file into memory.
-  res.sendfile(__dirname + '../web/app/index.html');
+  res.sendfile('index.html', { root: '../web/app' });
+  // res.sendfile(__dirname + '../web/app/index.html');
 });
 
 
